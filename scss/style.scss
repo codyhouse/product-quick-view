@@ -200,6 +200,10 @@ header {
 	.no-touch .cd-item:hover .cd-trigger {
 		opacity: 1;
 	}
+
+	.touch .cd-item .cd-trigger {
+		opacity: 1;
+	}
 }
 
 .cd-quick-view {
@@ -329,6 +333,10 @@ header {
 
 		.no-touch &:hover {
 			background: rgba($color-3, .8);
+			opacity: 1;
+		}
+
+		.touch & {
 			opacity: 1;
 		}
 	}

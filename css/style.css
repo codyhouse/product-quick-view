@@ -200,6 +200,10 @@ header h1 {
   .no-touch .cd-item:hover .cd-trigger {
     opacity: 1;
   }
+
+  .touch .cd-item .cd-trigger {
+    opacity: 1;
+  }
 }
 .cd-quick-view {
   /* quick view non available on small devices */
@@ -348,6 +352,9 @@ header h1 {
 }
 .no-touch .cd-slider-navigation li a:hover {
   background: rgba(71, 55, 78, 0.8);
+  opacity: 1;
+}
+.touch .cd-slider-navigation li a {
   opacity: 1;
 }
 .cd-slider-navigation li:first-child a::before {
