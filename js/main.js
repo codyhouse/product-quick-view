@@ -70,8 +70,12 @@ jQuery(document).ready(function($){
 			activeSliderUrl = close.siblings('.cd-slider-wrapper').find('.selected img').attr('src'),
 			selectedImage = $('.empty-box').find('img');
 		//update the image in the gallery
-		selectedImage.attr('src', activeSliderUrl);
-		animateQuickView(selectedImage, finalWidth, maxQuickWidth, 'close');
+		if( !$('.cd-quick-view').hasClass('velocity-animating') && $('.cd-quick-view').hasClass('add-content')) {
+			selectedImage.attr('src', activeSliderUrl);
+			animateQuickView(selectedImage, finalWidth, maxQuickWidth, 'close');
+		} else {
+			closeNoAnimation(selectedImage, finalWidth, maxQuickWidth);
+		}
 	}
 
 	function animateQuickView(image, finalWidth, maxQuickWidth, animationType) {
@@ -132,6 +136,19 @@ jQuery(document).ready(function($){
 				});
 			});
 		}
+	}
+	function closeNoAnimation(image, finalWidth, maxQuickWidth) {
+		var parentListItem = image.parent('.cd-item'),
+			topSelected = image.offset().top - $(window).scrollTop(),
+			leftSelected = image.offset().left,
+			widthSelected = image.width();
 
+		$('body').removeClass('overlay-layer');
+		parentListItem.removeClass('empty-box');
+		$('.cd-quick-view').velocity("stop").removeClass('add-content animate-width is-visible').css({
+			"top": topSelected,
+		    "left": leftSelected,
+		    "width": widthSelected,
+		});
 	}
 });
