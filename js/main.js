@@ -31,7 +31,7 @@ jQuery(document).ready(function($){
 	});
 
 	//quick view slider implementation
-	$('.cd-slider-navigation a').on('click', function(){
+	$('.cd-quick-view').on('click', '.cd-slider-navigation a', function(){
 		updateSlider($(this));
 	});
 
